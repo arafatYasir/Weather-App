@@ -9,13 +9,15 @@ const App = () => {
   const [country, setCountry] = useState("Bangladesh");
   const [city, setCity] = useState("Dhaka");
   const [weather, setWeather] = useState(null);
+  const [airPollution, setAirPollution] = useState(null);
 
   useEffect(() => {
     const load = async () => {
       try {
         const data = await fetchWeatherByCity(city);
-
+        const airData = await fetchAirPollution(data.coord.lat, data.coord.lon);
         setWeather(data);
+        setAirPollution(airData);
       }
       catch (error) {
         alert(error.message);
@@ -49,6 +51,7 @@ const App = () => {
       {weather && (
         <div className='bg-black/60 p-6 text-white rounded-lg max-w-4xl mx-auto mt-6 shadow-lg grid grid-cols-3 gap-3'>
           <WeatherCard weather={weather} />
+          <AirQuality airPollution={airPollution} />
         </div>
       )}
     </div>

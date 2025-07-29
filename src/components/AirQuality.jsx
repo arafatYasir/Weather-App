@@ -5,7 +5,7 @@ const AirQuality = ({airPollution}) => {
             <p>Air Pollution & Quality</p>
             {
                 Object.entries(values).map(([key, value]) => (
-                    <p key={key} className="text-sm">{key}: {value}</p>
+                    <p key={key} className="text-lg">{key}: {value}</p>
                 ))
             }
         </div>

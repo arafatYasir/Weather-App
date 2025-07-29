@@ -7,3 +7,9 @@ export const fetchWeatherByCity = async (city) => {
 
     return res.data;
 }
+
+export const fetchAirPollution = async (lat, lon) => {
+    const res = await axios.get(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`)
+
+    return res.data;
+}
