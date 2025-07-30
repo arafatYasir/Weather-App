@@ -4,6 +4,7 @@ import { fetchAirPollution, fetchWeatherByCity } from './utils/fetchWeather';
 import LocalTime from './components/LocalTime';
 import WeatherCard from './components/WeatherCard';
 import AirQuality from './components/AirQuality';
+import WindCard from './components/WindCard';
 
 const App = () => {
   const [country, setCountry] = useState("Bangladesh");
@@ -51,6 +52,7 @@ const App = () => {
       {weather && (
         <div className='bg-black/60 p-6 text-white rounded-lg max-w-4xl mx-auto mt-6 shadow-lg grid grid-cols-3 gap-3'>
           <WeatherCard weather={weather} />
+          <WindCard weather={weather} />
           <AirQuality airPollution={airPollution} />
         </div>
       )}
